@@ -10,6 +10,21 @@ Facebook). The idea is that we generate a wrapper class around the external API
 and intercept method calls, wrapping them in a Quartz Job and executing them
 there.
 
+Why use this?
+-------------
+
+We use this because a client wanted to wrap social media APIs and allow users to
+schedule posts to those APIs, as well as have "fault tolerance" to API outages.
+
+What works so far
+-----------------
+
+Very little:
+
+*	Wrap a class, forcing method calls to execute within Quartz Jobs
+
+*	Store results in memory (no way to fetch)
+
 Syntax
 ------
 
@@ -42,5 +57,11 @@ Future
 
 	Often the external API will require some configuration, so we should have
 	some way to hook that in.
+	
+*	Scheduler querying
+
+	Query for job status: error/result, number of retries
+	
+*	Cancel scheduled jobs or jobs in progress
 
 *	Other stuff...

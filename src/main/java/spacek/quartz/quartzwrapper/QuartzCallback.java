@@ -1,7 +1,7 @@
 package spacek.quartz.quartzwrapper;
 
-import java.util.concurrent.Callable;
+import spacek.quartz.result.ExecutionResult;
 
-public interface QuartzCallback<T> extends Callable<T> {
-
+public interface QuartzCallback<T> {
+	public void call(ExecutionResult<T> result);
 }
